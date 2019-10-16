@@ -70,7 +70,7 @@ console.log(firstNamesAllCaps);
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue. We need a filtered version of the runners array, containing only those runners with large sized shirts so they can choose a different size. This will be an array of objects.
-let runnersLargeSizeShirt = runners.filter(object => object.shirt_size = 'L');
+let runnersLargeSizeShirt = runners.filter(object => object.shirt_size === 'L');
 console.log(runnersLargeSizeShirt);
 
 // ==== Challenge 4: Use .reduce() ====
@@ -83,8 +83,15 @@ console.log(ticketPriceTotal);
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
-// Problem 1
+// Problem 1: The runners with last names starting with A need to be notified about something urgent regarding viral disease contamination. Plase help us master wayne
+const iCanHandleThis = runners.filter(object => object.last_name[0] === 'L');
+console.log(iCanHandleThis); 
 
-// Problem 2
+// Problem 2 The runners that have given less than 100 dollars must be rounded up. Please find theym
+const ifYouWish = runners.filter(object => object.donation < 100);
+console.log(ifYouWish)
 
-// Problem 3
+// Problem 3 A Karola Piper has made enemies with the state. Please send her a medium size shirt in retaliation
+const ifIMust = runners.filter(object => object.last_name === "Piper" && object.first_name === "Karola");
+const shirtEspionage = ifIMust.map(object => object + (object.shirt_size = "M"));
+console.log(ifIMust);
