@@ -37,28 +37,44 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
   const test2 = firstItem(items, logExorbitantPrice);
   console.log(test2); // "this Pencil is worth a million dollars!"
 */
-
+const callback = (argument) => {
+  return argument;
+}
 
 function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
+  return cb(arr.length);
 }
+console.log(getLength(items, callback))
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
+  return cb(arr[arr.length - 1]);
 }
+console.log(last(items, callback))
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return cb(x+y);
 }
-
+console.log(sumNums(3, 4, callback));
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  return cb(x*y);
 }
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  if(list.includes(item)){
+    return cb(true);
+  }
+  else {
+    return cb(false);
+  }
 }
+console.log(contains('Shoe', items, callback));//false
+console.log(contains('Pencil', items, callback));//true 
 
 /* STRETCH PROBLEM */
 
